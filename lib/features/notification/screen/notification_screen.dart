@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NotificationScreen extends StatefulWidget {
-  static const String routeName = '/home';
+  static const String routeName = '/notification';
   const NotificationScreen({super.key});
 
   @override

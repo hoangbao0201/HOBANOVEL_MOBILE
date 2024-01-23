@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hobanovel/common/widgets/bottom_bar.dart';
+import 'package:hobanovel/router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
+      onGenerateRoute: (settings) => generateRoute(settings),
       home: BottomBar(),
     );
   }

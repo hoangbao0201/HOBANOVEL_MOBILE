@@ -20,7 +20,7 @@ class _CarouselImageState extends State<CarouselImage> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(5.0),
       child: Column(
         children: [
           CarouselSlider(
@@ -35,8 +35,7 @@ class _CarouselImageState extends State<CarouselImage> {
                         child: Image.network(
                           i,
                           fit: BoxFit.cover,
-                          height: 250,
-                          
+                          height: 200,
                         ),
                       ),
                     ),
@@ -46,10 +45,10 @@ class _CarouselImageState extends State<CarouselImage> {
             ).toList(),
             options: CarouselOptions(
               viewportFraction: 1,
-              height: 250,
+              height: 200,
               autoPlay: true,
-              aspectRatio: 2.0,
-              autoPlayInterval: const Duration(seconds: 2),
+              // aspectRatio: 5.0,
+              autoPlayInterval: const Duration(seconds: 10),
               enlargeCenterPage: true,
               enlargeStrategy: CenterPageEnlargeStrategy.height,
               onPageChanged: (index, reason) {
@@ -69,10 +68,10 @@ class _CarouselImageState extends State<CarouselImage> {
   Widget buildIndicator() => AnimatedSmoothIndicator(
     activeIndex: activeIndex,
     count: GlobalVariables.carouselImages.length,
-    effect: const ExpandingDotsEffect(
-      dotWidth: 10,
-      dotHeight: 10,
-      radius: 5,
+    effect: const WormEffect(
+      dotWidth: 20,
+      dotHeight: 5,
+      radius: 0,
     ),
   );
 }

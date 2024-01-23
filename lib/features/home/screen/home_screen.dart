@@ -1,6 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:hobanovel/features/home/widgets/carousel_image.dart';
+import 'package:hobanovel/features/home/widgets/novels_completed.dart';
+import 'package:hobanovel/features/home/widgets/novels_featured.dart';
+import 'package:hobanovel/features/home/widgets/novels_emerging.dart';
+import 'package:hobanovel/features/home/widgets/novels_lastest.dart';
+import 'package:hobanovel/features/home/widgets/novels_popylar.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -40,9 +45,15 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: const [
-            CarouselImage()
+            CarouselImage(),
+            NovelsEmerging(),
+            NovelsFeatured(),
+            NovelsPopular(),
+            NovelsLastest(),
+            NovelsCompleted(),
           ],
         ),
       ),
