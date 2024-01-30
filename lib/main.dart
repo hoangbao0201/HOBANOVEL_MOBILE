@@ -15,11 +15,40 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        // useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: (settings) => generateRoute(settings),
       home: BottomBar(),
+      // home: ListView(
+      //   children: [
+      //     Container(
+      //       width: double.infinity,
+      //       height: 200,
+      //       color: Colors.amber,
+      //     ),
+      //     Container(
+      //       width: double.infinity,
+      //       height: 200,
+      //       color: Colors.black,
+      //     ),
+      //     Container(
+      //       width: double.infinity,
+      //       height: 200,
+      //       color: Colors.blueAccent,
+      //     ),
+      //     Container(
+      //       width: double.infinity,
+      //       height: 200,
+      //       color: Colors.green,
+      //     ),
+      //     Container(
+      //       width: double.infinity,
+      //       height: 200,
+      //       color: Colors.grey,
+      //     ),
+      //   ],
+      // )
     );
   }
 }

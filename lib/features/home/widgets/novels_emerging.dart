@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:hobanovel/common/widgets/novel_evaluate.dart';
 import 'package:hobanovel/constants/global_variables.dart';
 import 'package:hobanovel/features/novel_detail/screen/novel_detail_screen.dart';
 
@@ -90,19 +91,19 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 13.0, vertical: 5.0),
+              padding: EdgeInsets.symmetric(horizontal: 13.0, vertical: 10.0),
               child: Container(
                 width: double.infinity,
-                height: 200,
+                height: 180,
                 child: Row(
                   children: [
                     Expanded(
                       child: Container(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 10),
+                            // SizedBox(height: 10),
                             Text(
                               GlobalVariables.novelsNew[_activeIndex]["book_name"] ?? "",
                               maxLines: 2,
@@ -112,16 +113,18 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
                                 fontWeight: FontWeight.w400
                               ),
                             ),
-                            SizedBox(height: 5),
+                            // SizedBox(height: 5),
                             Text(
                               GlobalVariables.novelsNew[_activeIndex]["book_synopsis"] ?? "",
-                              maxLines: 3,
+                              maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                 color: Colors.black54
                               ),
                             ),
-                            SizedBox(height: 10),
+                            // SizedBox(height: 3),
+                            NovelEvaluate(pointEvaluate: 4, isReadOnly: true),
+                            // SizedBox(height: 3),
                             Row(
                               children: [
                                 ElevatedButton(

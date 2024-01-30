@@ -56,14 +56,14 @@ class GlobalVariables {
 
   // STATIC IMAGES
   static const List<String> carouselImages = [
-    "https://res.cloudinary.com/dayqaa8if/image/upload/v1705938746/hoanovel/carousel/3cacea3d8088a68296107169710d5f4b_tmuyzq.webp",
-    "https://res.cloudinary.com/dayqaa8if/image/upload/v1705938747/hoanovel/carousel/1b1c87dfcdac3e6efb037421a6049d09_hwfrmb.jpg",
-    "https://res.cloudinary.com/dayqaa8if/image/upload/v1705938747/hoanovel/carousel/0a055e0a2f923a60093211d659cafd2e_qkz36m.webp",
-    "https://res.cloudinary.com/dayqaa8if/image/upload/v1705938747/hoanovel/carousel/21df915c95e7b8a7961d7fc89a063c2a_y49wkg.webp",
-    "https://res.cloudinary.com/dayqaa8if/image/upload/v1705938746/hoanovel/carousel/0cbed5e61027a26648aee3b609c02343_f0so2o.webp",
-    "https://res.cloudinary.com/dayqaa8if/image/upload/v1705938746/hoanovel/carousel/725568f00ac83173921a07f2dd699edc_mjo0o6.jpg",
-    "https://res.cloudinary.com/dayqaa8if/image/upload/v1705938746/hoanovel/carousel/866d5ee0d1f660771d665e2a86a4961d_fgrflc.jpg",
-    "https://res.cloudinary.com/dayqaa8if/image/upload/v1705938746/hoanovel/carousel/0db66598a500225bf80482abbf686106_ulua6x.webp",
+    "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412734/hobanovel/carousel/3cacea3d8088a68296107169710d5f4b_mzv2le.webp",
+    "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412734/hobanovel/carousel/0cbed5e61027a26648aee3b609c02343_vebvvj.webp",
+    "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412735/hobanovel/carousel/866d5ee0d1f660771d665e2a86a4961d_c6lad0.jpg",
+    "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412735/hobanovel/carousel/3247e2a49468941c8d63d69049f7443a_v0cakr.webp",
+    "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412735/hobanovel/carousel/3247e2a49468941c8d63d69049f7443a_v0cakr.webp",
+    "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412734/hobanovel/carousel/1b1c87dfcdac3e6efb037421a6049d09_xgzgen.jpg",
+    "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412734/hobanovel/carousel/cd00f3055d2c4b6040ab3ba52d0981a8_g9ukzy.webp",
+    "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412734/hobanovel/carousel/0a055e0a2f923a60093211d659cafd2e_co0xqq.webp",
   ];
 
   static const List<Map<String, String>> categoryImages = [
@@ -97,10 +97,10 @@ class GlobalVariables {
       "book_name": "Trường Sinh: Theo Khí Vận Dòng Bắt Đầu",
       "book_slug": "truong-sinh-theo-khi-van-dong-bat-dau",
       "book_poster": {
-        "150": "https://static.lonoapp.net/vi/poster/truong-sinh-theo-khi-van-dong-bat-dau/150.jpg?1683428571",
-        "300": "https://static.lonoapp.net/vi/poster/truong-sinh-theo-khi-van-dong-bat-dau/300.jpg?1683428571",
-        "600": "https://static.lonoapp.net/vi/poster/truong-sinh-theo-khi-van-dong-bat-dau/600.jpg?1683428571",
-        "default": "https://static.lonoapp.net/vi/poster/truong-sinh-theo-khi-van-dong-bat-dau/default.jpg?1683428571"
+        "150": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412896/hobanovel/thumbnail/600_wlp5zq.jpg",
+        "300": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412896/hobanovel/thumbnail/600_wlp5zq.jpg",
+        "600": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412896/hobanovel/thumbnail/600_wlp5zq.jpg",
+        "default": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412896/hobanovel/thumbnail/600_wlp5zq.jpg"
       },
       "latest_index": 706,
       "chapter_id": 17343618,
@@ -119,10 +119,10 @@ class GlobalVariables {
       "book_name": "Dung Hợp Công Pháp: Từ Gia Tộc Tộc Trưởng Bắt Đầu",
       "book_slug": "dung-hop-cong-phap-tu-gia-toc-toc-truong-bat-dau",
       "book_poster": {
-        "150": "https://static.lonoapp.net/vi/poster/dung-hop-cong-phap-tu-gia-toc-toc-truong-bat-dau/150.jpg?1704860466",
-        "300": "https://static.lonoapp.net/vi/poster/dung-hop-cong-phap-tu-gia-toc-toc-truong-bat-dau/300.jpg?1704860466",
-        "600": "https://static.lonoapp.net/vi/poster/dung-hop-cong-phap-tu-gia-toc-toc-truong-bat-dau/600.jpg?1704860466",
-        "default": "https://static.lonoapp.net/vi/poster/dung-hop-cong-phap-tu-gia-toc-toc-truong-bat-dau/default.jpg?1704860466"
+        "150": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412931/hobanovel/thumbnail/600_pk9igh.jpg",
+        "300": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412931/hobanovel/thumbnail/600_pk9igh.jpg",
+        "600": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412931/hobanovel/thumbnail/600_pk9igh.jpg",
+        "default": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412931/hobanovel/thumbnail/600_pk9igh.jpg"
       },
       "latest_index": 273,
       "chapter_id": 17293479,
@@ -141,10 +141,10 @@ class GlobalVariables {
       "book_name": "Đạo Lữ Hung Mãnh Cũng Trùng Sinh",
       "book_slug": "dao-lu-hung-manh-cung-trung-sinh",
       "book_poster": {
-        "150": "https://static.lonoapp.net/vi/poster/dao-lu-hung-manh-cung-trung-sinh/150.jpg?1594288808",
-        "300": "https://static.lonoapp.net/vi/poster/dao-lu-hung-manh-cung-trung-sinh/300.jpg?1594288808",
-        "600": "https://static.lonoapp.net/vi/poster/dao-lu-hung-manh-cung-trung-sinh/600.jpg?1594288808",
-        "default": "https://static.lonoapp.net/vi/poster/dao-lu-hung-manh-cung-trung-sinh/default.jpg?1594288808"
+        "150": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412985/hobanovel/thumbnail/600_dmx0yz.jpg",
+        "300": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412985/hobanovel/thumbnail/600_dmx0yz.jpg",
+        "600": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412985/hobanovel/thumbnail/600_dmx0yz.jpg",
+        "default": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706412985/hobanovel/thumbnail/600_dmx0yz.jpg"
       },
       "latest_index": 556,
       "chapter_id": 12838838,
@@ -163,10 +163,10 @@ class GlobalVariables {
       "book_name": "Ta Thật Không Phải Khí Vận Chi Tử",
       "book_slug": "ta-that-khong-phai-khi-van-chi-tu",
       "book_poster": {
-        "150": "https://static.lonoapp.net/vi/poster/ta-that-khong-phai-khi-van-chi-tu/150.jpg?1587475124",
-        "300": "https://static.lonoapp.net/vi/poster/ta-that-khong-phai-khi-van-chi-tu/300.jpg?1587475124",
-        "600": "https://static.lonoapp.net/vi/poster/ta-that-khong-phai-khi-van-chi-tu/600.jpg?1587475124",
-        "default": "https://static.lonoapp.net/vi/poster/ta-that-khong-phai-khi-van-chi-tu/default.jpg?1587475124"
+        "150": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413019/hobanovel/thumbnail/600_mjhhue.jpg",
+        "300": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413019/hobanovel/thumbnail/600_mjhhue.jpg",
+        "600": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413019/hobanovel/thumbnail/600_mjhhue.jpg",
+        "default": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413019/hobanovel/thumbnail/600_mjhhue.jpg"
       },
       "latest_index": 512,
       "chapter_id": 12637941,
@@ -185,10 +185,10 @@ class GlobalVariables {
       "book_name": "Vô Địch Gian Thương",
       "book_slug": "vo-dich-gian-thuong",
       "book_poster": {
-        "150": "https://static.lonoapp.net/vi/poster/vo-dich-gian-thuong/150.jpg?1656675641",
-        "300": "https://static.lonoapp.net/vi/poster/vo-dich-gian-thuong/300.jpg?1656675641",
-        "600": "https://static.lonoapp.net/vi/poster/vo-dich-gian-thuong/600.jpg?1656675641",
-        "default": "https://static.lonoapp.net/vi/poster/vo-dich-gian-thuong/default.jpg?1656675641"
+        "150": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413041/hobanovel/thumbnail/600_fxpzpo.jpg",
+        "300": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413041/hobanovel/thumbnail/600_fxpzpo.jpg",
+        "600": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413041/hobanovel/thumbnail/600_fxpzpo.jpg",
+        "default": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413041/hobanovel/thumbnail/600_fxpzpo.jpg"
       },
       "latest_index": 562,
       "chapter_id": 12786341,
@@ -207,10 +207,10 @@ class GlobalVariables {
       "book_name": "Ta Man Hoang Bộ Lạc",
       "book_slug": "ta-man-hoang-bo-lac",
       "book_poster": {
-        "150": "https://static.lonoapp.net/vi/poster/ta-man-hoang-bo-lac/150.jpg?1585205728",
-        "300": "https://static.lonoapp.net/vi/poster/ta-man-hoang-bo-lac/300.jpg?1585205728",
-        "600": "https://static.lonoapp.net/vi/poster/ta-man-hoang-bo-lac/600.jpg?1585205728",
-        "default": "https://static.lonoapp.net/vi/poster/ta-man-hoang-bo-lac/default.jpg?1585205728"
+        "150": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413068/hobanovel/thumbnail/600_skw7hn.jpg",
+        "300": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413068/hobanovel/thumbnail/600_skw7hn.jpg",
+        "600": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413068/hobanovel/thumbnail/600_skw7hn.jpg",
+        "default": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413068/hobanovel/thumbnail/600_skw7hn.jpg"
       },
       "latest_index": 1153,
       "chapter_id": 12163622,
@@ -229,10 +229,10 @@ class GlobalVariables {
       "book_name": "Vô Địch Sư Thúc Tổ",
       "book_slug": "vo-dich-su-thuc-to",
       "book_poster": {
-        "150": "https://static.lonoapp.net/vi/poster/vo-dich-su-thuc-to/150.jpg?1586947524",
-        "300": "https://static.lonoapp.net/vi/poster/vo-dich-su-thuc-to/300.jpg?1586947524",
-        "600": "https://static.lonoapp.net/vi/poster/vo-dich-su-thuc-to/600.jpg?1586947524",
-        "default": "https://static.lonoapp.net/vi/poster/vo-dich-su-thuc-to/default.jpg?1586947524"
+        "150": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413088/hobanovel/thumbnail/600_mt1mqg.jpg",
+        "300": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413088/hobanovel/thumbnail/600_mt1mqg.jpg",
+        "600": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413088/hobanovel/thumbnail/600_mt1mqg.jpg",
+        "default": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413088/hobanovel/thumbnail/600_mt1mqg.jpg"
       },
       "latest_index": 431,
       "chapter_id": 12622947,
@@ -251,10 +251,10 @@ class GlobalVariables {
       "book_name": "Cẩu Thả Tại Nữ Ma Đầu Bên Người Vụng Trộm Tu Luyện",
       "book_slug": "bat-dau-nu-ma-dau-phu-ta",
       "book_poster": {
-        "150": "https://static.lonoapp.net/vi/poster/bat-dau-nu-ma-dau-phu-ta/150.jpg?1679461039",
-        "300": "https://static.lonoapp.net/vi/poster/bat-dau-nu-ma-dau-phu-ta/300.jpg?1679461039",
-        "600": "https://static.lonoapp.net/vi/poster/bat-dau-nu-ma-dau-phu-ta/600.jpg?1679461039",
-        "default": "https://static.lonoapp.net/vi/poster/bat-dau-nu-ma-dau-phu-ta/default.jpg?1679461039"
+        "150": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413107/hobanovel/thumbnail/600_akkbsw.jpg",
+        "300": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413107/hobanovel/thumbnail/600_akkbsw.jpg",
+        "600": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413107/hobanovel/thumbnail/600_akkbsw.jpg",
+        "default": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413107/hobanovel/thumbnail/600_akkbsw.jpg"
       },
       "latest_index": 1315,
       "chapter_id": 17341235,
@@ -273,10 +273,10 @@ class GlobalVariables {
       "book_name": "Thần Thoại Kỷ Nguyên, Ta Tiến Hóa Thành Hằng Tinh Cấp Cự Thú",
       "book_slug": "than-thoai-ky-nguyen-ta-tien-hoa-thanh-hang-tinh-cap-cu-thu",
       "book_poster": {
-        "150": "https://static.lonoapp.net/vi/poster/than-thoai-ky-nguyen-ta-tien-hoa-thanh-hang-tinh-cap-cu-thu/150.jpg?1705212729",
-        "300": "https://static.lonoapp.net/vi/poster/than-thoai-ky-nguyen-ta-tien-hoa-thanh-hang-tinh-cap-cu-thu/300.jpg?1705212729",
-        "600": "https://static.lonoapp.net/vi/poster/than-thoai-ky-nguyen-ta-tien-hoa-thanh-hang-tinh-cap-cu-thu/600.jpg?1705212729",
-        "default": "https://static.lonoapp.net/vi/poster/than-thoai-ky-nguyen-ta-tien-hoa-thanh-hang-tinh-cap-cu-thu/default.jpg?1705212729"
+        "150": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413128/hobanovel/thumbnail/600_x0omhm.jpg",
+        "300": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413128/hobanovel/thumbnail/600_x0omhm.jpg",
+        "600": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413128/hobanovel/thumbnail/600_x0omhm.jpg",
+        "default": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413128/hobanovel/thumbnail/600_x0omhm.jpg"
       },
       "latest_index": 968,
       "chapter_id": 16303210,
@@ -295,10 +295,10 @@ class GlobalVariables {
       "book_name": "Liếm Cẩu Phản Diện Chỉ Nghĩ Cẩu , Nữ Chính Không Theo Sáo Lộ Đi",
       "book_slug": "liem-cau-phan-dien-chi-nghi-cau-nu-chinh-khong-theo-sao-lo-di",
       "book_poster": {
-        "150": "https://static.lonoapp.net/vi/poster/liem-cau-phan-dien-chi-nghi-cau-nu-chinh-khong-theo-sao-lo-di/150.jpg?1703856160",
-        "300": "https://static.lonoapp.net/vi/poster/liem-cau-phan-dien-chi-nghi-cau-nu-chinh-khong-theo-sao-lo-di/300.jpg?1703856160",
-        "600": "https://static.lonoapp.net/vi/poster/liem-cau-phan-dien-chi-nghi-cau-nu-chinh-khong-theo-sao-lo-di/600.jpg?1703856160",
-        "default": "https://static.lonoapp.net/vi/poster/liem-cau-phan-dien-chi-nghi-cau-nu-chinh-khong-theo-sao-lo-di/default.jpg?1703856160"
+        "150": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413144/hobanovel/thumbnail/600_kkef3s.jpg",
+        "300": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413144/hobanovel/thumbnail/600_kkef3s.jpg",
+        "600": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413144/hobanovel/thumbnail/600_kkef3s.jpg",
+        "default": "https://res.cloudinary.com/dayqaa8if/image/upload/v1706413144/hobanovel/thumbnail/600_kkef3s.jpg"
       },
       "latest_index": 637,
       "chapter_id": 17242545,

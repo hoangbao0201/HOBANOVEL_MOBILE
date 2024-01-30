@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hobanovel/common/widgets/novel_evaluate.dart';
 import 'package:hobanovel/constants/global_variables.dart';
 
-class NovelsCompleted extends StatefulWidget {
-  const NovelsCompleted({super.key});
+class NovelsPopular extends StatefulWidget {
+  const NovelsPopular({super.key});
 
   @override
-  State<NovelsCompleted> createState() => _NovelsCompletedState();
+  State<NovelsPopular> createState() => _NovelsPopularState();
 }
 
-class _NovelsCompletedState extends State<NovelsCompleted> {
+class _NovelsPopularState extends State<NovelsPopular> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,9 +19,10 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
             padding: EdgeInsets.only(left: 0, top: 0, right: 0, bottom: 6),
             child: SizedBox(
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Mới hoàn thành",
+                    "Thịnh hành",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                   Container(
@@ -51,6 +51,7 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
                   child: Column(
                     children: [
                       Row(
+                        // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(6),
@@ -68,6 +69,7 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
                             child: Container(
                               height: 90,
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
@@ -79,7 +81,6 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
                                       fontWeight: FontWeight.w500
                                     ),
                                   ),
-                                  SizedBox(height: 3),
                                   Text(
                                     "Đô thị" ?? "",
                                     maxLines: 3,
@@ -89,8 +90,14 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
                                       fontSize: 14
                                     ),
                                   ),
-                                  SizedBox(height: 6),
-                                  NovelEvaluate(pointEvaluate: 4, isReadOnly: true),
+                                  Text(
+                                    "132K lượt đọc" ?? "",
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      color: Colors.black54
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -116,6 +123,7 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
                             child: Container(
                               height: 90,
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
@@ -127,7 +135,6 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
                                       fontWeight: FontWeight.w500
                                     ),
                                   ),
-                                  SizedBox(height: 3),
                                   Text(
                                     "Đô thị" ?? "",
                                     maxLines: 3,
@@ -137,8 +144,14 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
                                       fontSize: 14
                                     ),
                                   ),
-                                  SizedBox(height: 6),
-                                  NovelEvaluate(pointEvaluate: 4, isReadOnly: true),
+                                  Text(
+                                    "132K lượt đọc" ?? "",
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      color: Colors.black54
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -164,6 +177,7 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
                             child: Container(
                               height: 90,
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
@@ -175,7 +189,6 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
                                       fontWeight: FontWeight.w500
                                     ),
                                   ),
-                                  SizedBox(height: 3),
                                   Text(
                                     "Đô thị" ?? "",
                                     maxLines: 3,
@@ -185,8 +198,14 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
                                       fontSize: 14
                                     ),
                                   ),
-                                  SizedBox(height: 6),
-                                  NovelEvaluate(pointEvaluate: 4, isReadOnly: true),
+                                  Text(
+                                    "132K lượt đọc" ?? "",
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      color: Colors.black54
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),

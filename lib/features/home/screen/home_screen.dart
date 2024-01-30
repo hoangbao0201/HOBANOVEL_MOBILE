@@ -5,7 +5,7 @@ import 'package:hobanovel/features/home/widgets/novels_completed.dart';
 import 'package:hobanovel/features/home/widgets/novels_featured.dart';
 import 'package:hobanovel/features/home/widgets/novels_emerging.dart';
 import 'package:hobanovel/features/home/widgets/novels_lastest.dart';
-import 'package:hobanovel/features/home/widgets/novels_popylar.dart';
+import 'package:hobanovel/features/home/widgets/novels_popular.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
+          elevation: 0.0,
           backgroundColor:Colors.white,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 "HOBANOVEL",
                 style: TextStyle(
                   fontSize: 20,
+                  color: Colors.black,
                   fontWeight: FontWeight.w600
                 ),
               ),
@@ -44,19 +46,17 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Column(
-          children: const [
-            CarouselImage(),
-            NovelsEmerging(),
-            NovelsFeatured(),
-            NovelsPopular(),
-            NovelsLastest(),
-            NovelsCompleted(),
-          ],
-        ),
+      body: ListView(
+        children: [
+          CarouselImage(),
+          NovelsEmerging(),
+          NovelsFeatured(),
+          NovelsPopular(),
+          NovelsLastest(),
+          NovelsCompleted(),
+        ],
       ),
     );
   }
 }
+          

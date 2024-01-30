@@ -47,7 +47,7 @@ class _NovelsFeaturedState extends State<NovelsFeatured> {
                 crossAxisCount: 3,
                 crossAxisSpacing: 18,
                 mainAxisSpacing: 12,
-                mainAxisExtent: 220
+                mainAxisExtent: 208
               ),
               itemBuilder: (context, index) {
                 final orderData = GlobalVariables.novelsNew[index];
@@ -79,7 +79,7 @@ class _NovelsFeaturedState extends State<NovelsFeatured> {
                             color: Colors.black54
                           ),
                         ),
-                        SizedBox(height: 2),
+                        SizedBox(height: 6),
                         Text(
                           "Huyền huyễn",
                           maxLines: 1,

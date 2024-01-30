@@ -45,10 +45,9 @@ class _NovelsLastestState extends State<NovelsLastest> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 7.0, vertical: 0.0),
               child: SizedBox(
-                height: 180,
+                height: 170,
                 child: ListView.builder(
                   itemCount: 10,
-                  physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => GestureDetector(
                     onTap: () {
@@ -68,7 +67,7 @@ class _NovelsLastestState extends State<NovelsLastest> {
                                 ),
                               ),
                           ),
-                          SizedBox(height: 3),
+                          SizedBox(height: 5),
                           Text(
                             GlobalVariables.novelsNew[index]["book_name"] ?? "",
                             maxLines: 2,
