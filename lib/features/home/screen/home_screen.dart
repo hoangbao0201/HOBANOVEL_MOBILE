@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:hobanovel/features/home/services/home_services.dart';
 import 'package:hobanovel/features/home/widgets/carousel_image.dart';
 import 'package:hobanovel/features/home/widgets/novels_completed.dart';
 import 'package:hobanovel/features/home/widgets/novels_featured.dart';
@@ -16,6 +17,36 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  dynamic novelsEmerging;
+  dynamic novelsFeature;
+  dynamic novelsPopular;
+  final HomeServices homeServices = HomeServices();
+
+  void fetchNovelsEmerging() async {
+    novelsEmerging = await homeServices.getNovelsEmerging(
+      context: context, take: 10, skip: 0);
+    setState(() {});
+  }
+
+  void fetchNovelsFeature() async {
+    novelsFeature = await homeServices.getNovelsEmerging(
+      context: context, take: 10, skip: 0);
+    setState(() {});
+  }
+
+  void fetchNovelsPopular() async {
+    novelsPopular = await homeServices.getNovelsEmerging(
+      context: context, take: 9, skip: 0);
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchNovelsEmerging();
+    fetchNovelsFeature();
+    fetchNovelsPopular();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +80,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         children: [
           CarouselImage(),
-          NovelsEmerging(),
-          NovelsFeatured(),
-          NovelsPopular(),
+          NovelsEmerging(novels: novelsEmerging),
+          NovelsFeatured(novels: novelsFeature),
+          NovelsPopular(novels: novelsPopular),
           NovelsLastest(),
           NovelsCompleted(),
         ],

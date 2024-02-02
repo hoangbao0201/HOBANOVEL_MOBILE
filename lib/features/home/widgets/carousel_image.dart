@@ -2,6 +2,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:hobanovel/constants/global_variables.dart';
+import 'package:hobanovel/features/novel_detail/screen/novel_detail_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 
@@ -16,11 +17,15 @@ class CarouselImage extends StatefulWidget {
 class _CarouselImageState extends State<CarouselImage> {
   int activeIndex = 0;
 
+  void navigateToNovelDetailScreen() {
+    Navigator.pushNamed(context, NovelDetailScreen.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: const EdgeInsets.all(5.0),
+      padding: const EdgeInsets.only(left: 0, right: 0, bottom: 10.0),
       child: Column(
         children: [
           CarouselSlider(
@@ -28,14 +33,17 @@ class _CarouselImageState extends State<CarouselImage> {
               (i) {
                 return Builder(
                   builder: (BuildContext context) => Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: SizedBox.fromSize(
-                        child: Image.network(
-                          i,
-                          fit: BoxFit.cover,
-                          height: 200,
+                    padding: const EdgeInsets.all(10.0),
+                    child: InkWell(
+                      onTap: navigateToNovelDetailScreen,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: SizedBox.fromSize(
+                          child: Image.network(
+                            i,
+                            fit: BoxFit.cover,
+                            height: 200,
+                          ),
                         ),
                       ),
                     ),

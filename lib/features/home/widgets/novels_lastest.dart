@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hobanovel/constants/global_variables.dart';
+import 'package:hobanovel/features/novel_detail/screen/novel_detail_screen.dart';
 
 class NovelsLastest extends StatefulWidget {
   const NovelsLastest({super.key});
@@ -10,6 +11,11 @@ class NovelsLastest extends StatefulWidget {
 }
 
 class _NovelsLastestState extends State<NovelsLastest> {
+
+  void navigateToNovelDetailScreen() {
+    Navigator.pushNamed(context, NovelDetailScreen.routeName);
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +31,7 @@ class _NovelsLastestState extends State<NovelsLastest> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Mới nhất",
+                      "Mới đăng",
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,
@@ -50,8 +56,7 @@ class _NovelsLastestState extends State<NovelsLastest> {
                   itemCount: 10,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => GestureDetector(
-                    onTap: () {
-                    },
+                    onTap: navigateToNovelDetailScreen,
                     child: Container(
                       width: 100,
                       margin: EdgeInsets.symmetric(horizontal: 6.0),

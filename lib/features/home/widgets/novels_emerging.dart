@@ -1,11 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:hobanovel/common/widgets/novel_evaluate.dart';
-import 'package:hobanovel/constants/global_variables.dart';
 import 'package:hobanovel/features/novel_detail/screen/novel_detail_screen.dart';
 
 class NovelsEmerging extends StatefulWidget {
-  const NovelsEmerging({super.key});
+  final dynamic novels;
+  const NovelsEmerging({Key? key, required this.novels}): super(key: key);
 
   @override
   State<NovelsEmerging> createState() => _NovelsEmergingState();
@@ -13,6 +12,9 @@ class NovelsEmerging extends StatefulWidget {
 
 class _NovelsEmergingState extends State<NovelsEmerging> {
   int _activeIndex = 0;
+  // dynamic novels;
+  // final HomeServices homeServices = HomeServices();
+  // NovelItem({required this.novel, required this.onTap});
 
   void updateActiveIndex(int index) {
     setState(() {
@@ -24,145 +26,176 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
     Navigator.pushNamed(context, NovelDetailScreen.routeName);
   }
 
+  // void fetchNovelsEmerging() async {
+  //   novels = await homeServices.getNovelsEmerging(
+  //     context: context, take: 10, skip: 0);
+  //   setState(() {});
+  // }
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   fetchNovelsEmerging();
+  // }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 13.0, vertical: 0.0),
-              child: SizedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Mới nhất",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600
-                      ),
-                    ),
-                    Container(
-                      color: Colors.transparent,
-                      height: 42,
-                      margin: const EdgeInsets.symmetric(horizontal: 10),
-                      child: const Icon(Icons.keyboard_arrow_right, color: Colors.black, size: 25),
-                    ),
-                  ],
-                ),
-              ),
+    return widget.novels == null
+        ? Container(
+            width: double.infinity,
+            height: 320,
+            decoration: BoxDecoration(
+              color: Colors.blueGrey[100],
+              borderRadius: BorderRadius.circular(10),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 9.0, vertical: 5.0),
-              child: SizedBox(
-                height: 65,
-                child: ListView.builder(
-                  itemCount: GlobalVariables.novelsNew.length,
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => GestureDetector(
-                    onTap: () {
-                      updateActiveIndex(index);
-                    },
-                    child: Container(
-                      height: 65,
-                      width: 50,
-                      margin: EdgeInsets.symmetric(horizontal: 2.0),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: _activeIndex == index ? Colors.black : Colors.transparent,
-                          width: 2.0
+            margin: EdgeInsets.only(left: 12.0, right: 12.0, bottom: 10.0),
+          )
+        : Container(
+            height: 320,
+            color: Colors.white,
+            padding: EdgeInsets.only(left: 12.0, right: 12.0, bottom: 10.0),
+            child: Column(
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: const SizedBox(
+                    height: 45,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Mới nhất",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w600),
                         ),
-                        borderRadius: BorderRadius.circular(7)
-                      ),
-                      child: ClipRRect(
-                          borderRadius: BorderRadius.circular(5),
-                          child: SizedBox.fromSize(
-                            child: Image.network(
-                              GlobalVariables.novelsNew[index]["book_poster"]["150"] ?? "",
-                              fit: BoxFit.cover,
-                              height: 200,
-                            ),
-                          ),
-                        ),
+                        Icon(Icons.keyboard_arrow_right,
+                            color: Colors.black, size: 25),
+                      ],
                     ),
-                  )
+                  ),
                 ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 13.0, vertical: 10.0),
-              child: Container(
-                width: double.infinity,
-                height: 180,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // SizedBox(height: 10),
-                            Text(
-                              GlobalVariables.novelsNew[_activeIndex]["book_name"] ?? "",
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400
-                              ),
-                            ),
-                            // SizedBox(height: 5),
-                            Text(
-                              GlobalVariables.novelsNew[_activeIndex]["book_synopsis"] ?? "",
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                color: Colors.black54
-                              ),
-                            ),
-                            // SizedBox(height: 3),
-                            NovelEvaluate(pointEvaluate: 4, isReadOnly: true),
-                            // SizedBox(height: 3),
-                            Row(
-                              children: [
-                                ElevatedButton(
-                                  onPressed: navigateToNovelDetailScreen,
-                                  child: Text("Đọc ngay", style: TextStyle(color: Colors.white),),
-                                  style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                      const RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        // color: Colors.yellow,
+                        height: 65,
+                        child: ListView.builder(
+                            itemCount: 10,
+                            physics: const AlwaysScrollableScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) => GestureDetector(
+                                  onTap: () {
+                                    updateActiveIndex(index);
+                                  },
+                                  child: Container(
+                                    height: 65,
+                                    width: 50,
+                                    margin: EdgeInsets.symmetric(horizontal: 2.0),
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: _activeIndex == index
+                                                ? Colors.black
+                                                : Colors.transparent,
+                                            width: 2.0),
+                                        borderRadius: BorderRadius.circular(7)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(5),
+                                      child: SizedBox.fromSize(
+                                        child: Image.network(
+                                          widget.novels["novels"][index]["thumbnail"] ??
+                                              "",
+                                          fit: BoxFit.cover,
+                                          height: 200,
+                                        ),
                                       ),
                                     ),
-                                    backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
                                   ),
-                                )
-                              ],
-                            )
+                                )),
+                      ),
+                      Container(
+                        // color: Colors.green,
+                        height: 180,
+                        width: double.infinity,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    widget.novels["novels"][_activeIndex]["title"] ??
+                                        "",
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                  Text(
+                                    widget.novels["novels"][_activeIndex]
+                                            ["description"] ??
+                                        "",
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(color: Colors.black54),
+                                  ),
+                                  const NovelEvaluate(
+                                      pointEvaluate: 4, isReadOnly: true),
+                                  Row(
+                                    children: [
+                                      ElevatedButton(
+                                        onPressed: navigateToNovelDetailScreen,
+                                        child: Text(
+                                          "Đọc ngay",
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                        style: ButtonStyle(
+                                          shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                            const RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(8)),
+                                            ),
+                                          ),
+                                          backgroundColor:
+                                              MaterialStateProperty.all<Color>(
+                                                  Colors.black),
+                                        ),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            InkWell(
+                              onTap: navigateToNovelDetailScreen,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(6),
+                                child: SizedBox.fromSize(
+                                  child: Image.network(
+                                    widget.novels["novels"][_activeIndex]["thumbnail"] ??
+                                        "",
+                                    fit: BoxFit.cover,
+                                    width: 140,
+                                    height: 180,
+                                  ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
-                      ),
-                    ),
-                    SizedBox(width: 6),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(6),
-                      child: SizedBox.fromSize(
-                        child: Image.network(
-                          GlobalVariables.novelsNew[_activeIndex]["book_poster"]["150"] ?? "",
-                          fit: BoxFit.cover,
-                          width: 140,
-                          height: 180,
-                        ),
-                      ),
-                    ),
-                  ],
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
-      ),
-    );
+              ],
+            ),
+          );
   }
 }

@@ -1,9 +1,9 @@
-import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:hobanovel/common/widgets/novel_evaluate.dart';
 import 'package:hobanovel/constants/global_variables.dart';
+import 'package:hobanovel/features/chapter_detail/screen/chapter_detail_screen.dart';
 
 class NovelDetailScreen extends StatefulWidget {
   static const String routeName = '/novel-details';
@@ -14,9 +14,10 @@ class NovelDetailScreen extends StatefulWidget {
 }
 
 class _NovelDetailScreenState extends State<NovelDetailScreen> {
-  bool _stretch = true;
 
-  void navigateToChapterDetailScreen() {}
+  void navigateToChapterDetailScreen() {
+    Navigator.pushNamed(context, ChapterDetailScreen.routeName);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -121,8 +122,7 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
                                           crossAxisAlignment: CrossAxisAlignment.end,
                                           children: [
                                             InkWell(
-                                              onTap: () {
-                                              },
+                                              onTap: navigateToChapterDetailScreen,
                                               child: ClipRRect(
                                                 borderRadius: BorderRadius.circular(9), // Điều chỉnh bán kính để thay đổi độ cong của góc
                                                 child: Container(

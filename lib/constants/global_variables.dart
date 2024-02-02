@@ -311,4 +311,20 @@ class GlobalVariables {
       "created_at": "2023-12-29T13:22:31.000000Z"
     }
   ];
+
+  static const dataGenres = {
+    "2": "Tiên Hiệp",
+    "3": "Huyền Huyễn",
+    "4": "Khoa Huyễn",
+    "5": "Võng Du",
+    "6": "Đô Thị",
+    "7": "Đồng Nhân",
+    "8": "Dã Sử",
+    "9": "Cạnh Kỹ",
+    "11": "Huyền Nghi",
+    "12": "Kiếm Hiệp",
+    "20": "Kỳ Ảo",
+  };
+
+  static const contentChapter = "";
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hobanovel/common/widgets/novel_evaluate.dart';
 import 'package:hobanovel/constants/global_variables.dart';
+import 'package:hobanovel/features/novel_detail/screen/novel_detail_screen.dart';
 
 class NovelsCompleted extends StatefulWidget {
   const NovelsCompleted({super.key});
@@ -10,6 +11,11 @@ class NovelsCompleted extends StatefulWidget {
 }
 
 class _NovelsCompletedState extends State<NovelsCompleted> {
+
+  void navigateToNovelDetailScreen() {
+    Navigator.pushNamed(context, NovelDetailScreen.routeName);
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,148 +56,157 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
                   padding: EdgeInsets.only(left: 0, top: 0, right: 13, bottom: 0),
                   child: Column(
                     children: [
-                      Row(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(6),
-                            child: SizedBox.fromSize(
-                              child: Image.network(
-                                GlobalVariables.novelsNew[(index*3+2)-2]["book_poster"]["150"] ?? "",
-                                fit: BoxFit.cover,
-                                width: 70,
+                      InkWell(
+                        onTap: navigateToNovelDetailScreen,
+                        child: Row(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(6),
+                              child: SizedBox.fromSize(
+                                child: Image.network(
+                                  GlobalVariables.novelsNew[(index*3+2)-2]["book_poster"]["150"] ?? "",
+                                  fit: BoxFit.cover,
+                                  width: 70,
+                                  height: 90,
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            Expanded(
+                              child: Container(
                                 height: 90,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      GlobalVariables.novelsNew[(index*3+2)-2]["book_name"] ?? "",
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500
+                                      ),
+                                    ),
+                                    SizedBox(height: 3),
+                                    Text(
+                                      "Đô thị" ?? "",
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        color: Colors.black54,
+                                        fontSize: 14
+                                      ),
+                                    ),
+                                    SizedBox(height: 6),
+                                    NovelEvaluate(pointEvaluate: 4, isReadOnly: true),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(width: 10),
-                          Expanded(
-                            child: Container(
-                              height: 90,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    GlobalVariables.novelsNew[(index*3+2)-2]["book_name"] ?? "",
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500
-                                    ),
-                                  ),
-                                  SizedBox(height: 3),
-                                  Text(
-                                    "Đô thị" ?? "",
-                                    maxLines: 3,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      color: Colors.black54,
-                                      fontSize: 14
-                                    ),
-                                  ),
-                                  SizedBox(height: 6),
-                                  NovelEvaluate(pointEvaluate: 4, isReadOnly: true),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       SizedBox(height: 15),
-                      Row(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(6),
-                            child: SizedBox.fromSize(
-                              child: Image.network(
-                                GlobalVariables.novelsNew[(index*3+2)-1]["book_poster"]["150"] ?? "",
-                                fit: BoxFit.cover,
-                                width: 70,
+                      InkWell(
+                        onTap: navigateToNovelDetailScreen,
+                        child: Row(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(6),
+                              child: SizedBox.fromSize(
+                                child: Image.network(
+                                  GlobalVariables.novelsNew[(index*3+2)-1]["book_poster"]["150"] ?? "",
+                                  fit: BoxFit.cover,
+                                  width: 70,
+                                  height: 90,
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            Expanded(
+                              child: Container(
                                 height: 90,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      GlobalVariables.novelsNew[(index*3+2)-1]["book_name"] ?? "",
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500
+                                      ),
+                                    ),
+                                    SizedBox(height: 3),
+                                    Text(
+                                      "Đô thị" ?? "",
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        color: Colors.black54,
+                                        fontSize: 14
+                                      ),
+                                    ),
+                                    SizedBox(height: 6),
+                                    NovelEvaluate(pointEvaluate: 4, isReadOnly: true),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(width: 10),
-                          Expanded(
-                            child: Container(
-                              height: 90,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    GlobalVariables.novelsNew[(index*3+2)-1]["book_name"] ?? "",
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500
-                                    ),
-                                  ),
-                                  SizedBox(height: 3),
-                                  Text(
-                                    "Đô thị" ?? "",
-                                    maxLines: 3,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      color: Colors.black54,
-                                      fontSize: 14
-                                    ),
-                                  ),
-                                  SizedBox(height: 6),
-                                  NovelEvaluate(pointEvaluate: 4, isReadOnly: true),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       SizedBox(height: 15),
-                      Row(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(6),
-                            child: SizedBox.fromSize(
-                              child: Image.network(
-                                GlobalVariables.novelsNew[(index*3+2)]["book_poster"]["150"] ?? "",
-                                fit: BoxFit.cover,
-                                width: 70,
+                      InkWell(
+                        onTap: navigateToNovelDetailScreen,
+                        child: Row(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(6),
+                              child: SizedBox.fromSize(
+                                child: Image.network(
+                                  GlobalVariables.novelsNew[(index*3+2)]["book_poster"]["150"] ?? "",
+                                  fit: BoxFit.cover,
+                                  width: 70,
+                                  height: 90,
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            Expanded(
+                              child: Container(
                                 height: 90,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      GlobalVariables.novelsNew[(index*3+2)]["book_name"] ?? "",
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500
+                                      ),
+                                    ),
+                                    SizedBox(height: 3),
+                                    Text(
+                                      "Đô thị" ?? "",
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        color: Colors.black54,
+                                        fontSize: 14
+                                      ),
+                                    ),
+                                    SizedBox(height: 6),
+                                    NovelEvaluate(pointEvaluate: 4, isReadOnly: true),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(width: 10),
-                          Expanded(
-                            child: Container(
-                              height: 90,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    GlobalVariables.novelsNew[(index*3+2)]["book_name"] ?? "",
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500
-                                    ),
-                                  ),
-                                  SizedBox(height: 3),
-                                  Text(
-                                    "Đô thị" ?? "",
-                                    maxLines: 3,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      color: Colors.black54,
-                                      fontSize: 14
-                                    ),
-                                  ),
-                                  SizedBox(height: 6),
-                                  NovelEvaluate(pointEvaluate: 4, isReadOnly: true),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ],
                   ),
