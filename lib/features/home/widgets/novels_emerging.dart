@@ -22,21 +22,9 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
     });
   }
 
-  void navigateToNovelDetailScreen() {
-    Navigator.pushNamed(context, NovelDetailScreen.routeName);
+  void navigateToNovelDetailScreen(novel) {
+    Navigator.pushNamed(context, NovelDetailScreen.routeName, arguments: novel);
   }
-
-  // void fetchNovelsEmerging() async {
-  //   novels = await homeServices.getNovelsEmerging(
-  //     context: context, take: 10, skip: 0);
-  //   setState(() {});
-  // }
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   fetchNovelsEmerging();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -149,7 +137,7 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
                                   Row(
                                     children: [
                                       ElevatedButton(
-                                        onPressed: navigateToNovelDetailScreen,
+                                        onPressed: () => navigateToNovelDetailScreen(widget.novels["novels"][_activeIndex]),
                                         child: Text(
                                           "Đọc ngay",
                                           style: TextStyle(color: Colors.white),
@@ -174,7 +162,7 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
                             ),
                             const SizedBox(width: 8),
                             InkWell(
-                              onTap: navigateToNovelDetailScreen,
+                              onTap: () => navigateToNovelDetailScreen(widget.novels["novels"][_activeIndex]),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(6),
                                 child: SizedBox.fromSize(

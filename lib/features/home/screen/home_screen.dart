@@ -20,6 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
   dynamic novelsEmerging;
   dynamic novelsFeature;
   dynamic novelsPopular;
+  dynamic novelsLastest;
+  dynamic novelsCompleted;
   final HomeServices homeServices = HomeServices();
 
   void fetchNovelsEmerging() async {
@@ -40,12 +42,26 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {});
   }
 
+  void fetchNovelsLastest() async {
+    novelsLastest = await homeServices.getNovelsEmerging(
+      context: context, take: 10, skip: 0);
+    setState(() {});
+  }
+
+  void fetchNovelsCompleted() async {
+    novelsCompleted = await homeServices.getNovelsEmerging(
+      context: context, take: 9, skip: 0);
+    setState(() {});
+  }
+
   @override
   void initState() {
     super.initState();
     fetchNovelsEmerging();
     fetchNovelsFeature();
     fetchNovelsPopular();
+    fetchNovelsLastest();
+    fetchNovelsCompleted();
   }
 
   @override
@@ -83,8 +99,8 @@ class _HomeScreenState extends State<HomeScreen> {
           NovelsEmerging(novels: novelsEmerging),
           NovelsFeatured(novels: novelsFeature),
           NovelsPopular(novels: novelsPopular),
-          NovelsLastest(),
-          NovelsCompleted(),
+          NovelsLastest(novels: novelsLastest),
+          NovelsCompleted(novels: novelsCompleted),
         ],
       ),
     );

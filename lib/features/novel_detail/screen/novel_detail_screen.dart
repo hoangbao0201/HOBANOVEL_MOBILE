@@ -2,12 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:hobanovel/common/widgets/novel_evaluate.dart';
-import 'package:hobanovel/constants/global_variables.dart';
 import 'package:hobanovel/features/chapter_detail/screen/chapter_detail_screen.dart';
 
 class NovelDetailScreen extends StatefulWidget {
   static const String routeName = '/novel-details';
-  const NovelDetailScreen({super.key});
+  final dynamic novel;
+  const NovelDetailScreen({Key? key, required this.novel}): super(key: key);
 
   @override
   State<NovelDetailScreen> createState() => _NovelDetailScreenState();
@@ -46,7 +46,7 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(5),
                                   child: Image.network(
-                                    GlobalVariables.novelsNew[1]["book_poster"]["150"] ?? "",
+                                    widget.novel["thumbnail"] ?? "",
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -60,7 +60,7 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        GlobalVariables.novelsNew[1]["book_name"] ?? "",
+                                        widget.novel["title"] ?? "",
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
@@ -73,7 +73,7 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
                                         children: [
                                           Text(
                                             "Bởi ",
-                                            maxLines: 2,
+                                            maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
                                                 fontSize: 10,
@@ -81,8 +81,8 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
                                                 fontWeight: FontWeight.w400),
                                           ),
                                           Text(
-                                            "Nguyễn Hoàng Bảo",
-                                            maxLines: 2,
+                                            widget.novel["author"]["name"] ?? "",
+                                            maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
                                               fontSize: 10,
@@ -177,9 +177,9 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
                     height: 200,
                     child: ClipRRect(
                       child: ImageFiltered(
-                        imageFilter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                        imageFilter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
                         child: Image.network(
-                            GlobalVariables.novelsNew[1]["book_poster"]["150"] ??
+                            widget.novel["thumbnail"] ??
                                 "",
                             fit: BoxFit.cover),
                       ),
@@ -212,23 +212,46 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
           body: TabBarView(
             children: [
               Container(
-                child: Center(
-                  child: Text('Content for Tab 1'),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                        child: Text(
+                          widget.novel["description"].replaceFirst("\t", "\n\n\t") ?? "",
+                          style: TextStyle(
+                            fontSize: 17,
+                            color: Colors.black87
+                          ),
+                        ),
+                      ),
+                    ),
+                  ]
                 ),
               ),
               Container(
-                child: Center(
-                  child: Text('Content for Tab 2'),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Content for Tab 2'),
+                  ]
                 ),
               ),
               Container(
-                child: Center(
-                  child: Text('Content for Tab 3'),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Content for Tab 3'),
+                  ]
                 ),
               ),
               Container(
-                child: Center(
-                  child: Text('Content for Tab 4'),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Content for Tab 4'),
+                  ]
                 ),
               ),
             ],
@@ -238,33 +261,6 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
     );
   }
 }
-
-            // SliverList(
-            //   delegate: SliverChildBuilderDelegate(
-            //     (_, i) => Card(
-            //       margin: const EdgeInsets.all(10),
-            //       child: Padding(
-            //         padding: const EdgeInsets.all(8.0),
-            //         child: Row(
-            //           mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //           children: [
-            //             Expanded(
-            //               flex: 1,
-            //               child: Text(
-            //                 i.toString(),
-            //               ),
-            //             ),
-            //             const Expanded(
-            //               flex: 3,
-            //               child: Text('Text'),
-            //             ),
-            //           ],
-            //         ),
-            //       ),
-            //     ),
-            //     childCount: 100,
-            //   ),
-            // ),
 class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final TabBar _tabBar;
 

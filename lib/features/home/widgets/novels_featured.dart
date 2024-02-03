@@ -11,8 +11,8 @@ class NovelsFeatured extends StatefulWidget {
 }
 
 class _NovelsFeaturedState extends State<NovelsFeatured> {
-  void navigateToNovelDetailScreen() {
-    Navigator.pushNamed(context, NovelDetailScreen.routeName);
+  void navigateToNovelDetailScreen(novel) {
+    Navigator.pushNamed(context, NovelDetailScreen.routeName, arguments: novel);
   }
 
   @override
@@ -63,7 +63,7 @@ class _NovelsFeaturedState extends State<NovelsFeatured> {
                       mainAxisExtent: 208),
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: navigateToNovelDetailScreen,
+                      onTap: () => navigateToNovelDetailScreen(widget.novels["novels"][index]),
                       child: Container(
                         // color: Colors.red,
                         child: Column(

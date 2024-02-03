@@ -10,8 +10,8 @@ class NovelsPopular extends StatefulWidget {
 }
 
 class _NovelsPopularState extends State<NovelsPopular> {
-  void navigateToNovelDetailScreen() {
-    Navigator.pushNamed(context, NovelDetailScreen.routeName);
+  void navigateToNovelDetailScreen(novel) {
+    Navigator.pushNamed(context, NovelDetailScreen.routeName, arguments: novel);
   }
 
   @override
@@ -40,7 +40,7 @@ class _NovelsPopularState extends State<NovelsPopular> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "Đề cử",
+                          "Thịnh hành",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.w600),
                         ),
@@ -64,9 +64,9 @@ class _NovelsPopularState extends State<NovelsPopular> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  NovelItem(novelData: widget.novels["novels"][(index * 3 + 2) - 2], onTap: navigateToNovelDetailScreen),
-                                  NovelItem(novelData: widget.novels["novels"][(index * 3 + 2) - 1], onTap: navigateToNovelDetailScreen),
-                                  NovelItem(novelData: widget.novels["novels"][(index * 3 + 2) - 0], onTap: navigateToNovelDetailScreen),
+                                  NovelItem(novelData: widget.novels["novels"][(index * 3 + 2) - 2], onTap: () => navigateToNovelDetailScreen(widget.novels["novels"][(index * 3 + 2) - 2])),
+                                  NovelItem(novelData: widget.novels["novels"][(index * 3 + 2) - 1], onTap: () => navigateToNovelDetailScreen(widget.novels["novels"][(index * 3 + 2) - 1])),
+                                  NovelItem(novelData: widget.novels["novels"][(index * 3 + 2) - 0], onTap: () => navigateToNovelDetailScreen(widget.novels["novels"][(index * 3 + 2) - 0])),
                                 ],
                               ),
                             ),

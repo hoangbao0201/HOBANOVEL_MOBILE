@@ -32,9 +32,10 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         builder: (_) => const ProfileScreen(),
       );
     case NovelDetailScreen.routeName:
+      var novel = routeSettings.arguments as dynamic;
       return CupertinoPageRoute(
         settings: routeSettings,
-        builder: (_) => const NovelDetailScreen(),
+        builder: (_) => NovelDetailScreen(novel: novel),
       );
     case ChapterDetailScreen.routeName:
       return CupertinoPageRoute(
