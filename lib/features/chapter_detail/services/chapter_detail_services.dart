@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:hobanovel/model/chapter.dart';
+import 'package:hobanovel/models/chapter.dart';
 import 'package:http/http.dart' as http;
 
 

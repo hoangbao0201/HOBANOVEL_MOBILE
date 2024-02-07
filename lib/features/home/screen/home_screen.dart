@@ -7,6 +7,7 @@ import 'package:hobanovel/features/home/widgets/novels_featured.dart';
 import 'package:hobanovel/features/home/widgets/novels_emerging.dart';
 import 'package:hobanovel/features/home/widgets/novels_lastest.dart';
 import 'package:hobanovel/features/home/widgets/novels_popular.dart';
+import 'package:hobanovel/models/novel.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -17,46 +18,71 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  dynamic novelsEmerging;
-  dynamic novelsFeature;
-  dynamic novelsPopular;
-  dynamic novelsLastest;
-  dynamic novelsCompleted;
+  late List<Novel>? novelsEmerging;
+  late List<Novel>? novelsFeature;
+  late List<Novel>? novelsPopular;
+  late List<Novel>? novelsLastest;
+  late List<Novel>? novelsCompleted;
   final HomeServices homeServices = HomeServices();
 
   void fetchNovelsEmerging() async {
-    novelsEmerging = await homeServices.getNovelsEmerging(
+    final List<Novel>? result = await homeServices.getNovelsEmerging(
       context: context, take: 10, skip: 0);
-    setState(() {});
+    if (mounted) {
+      setState(() {
+        novelsEmerging = result;
+      });
+    }
   }
 
   void fetchNovelsFeature() async {
-    novelsFeature = await homeServices.getNovelsEmerging(
+    final List<Novel>? result = await homeServices.getNovelsEmerging(
       context: context, take: 10, skip: 0);
-    setState(() {});
+    if (mounted) {
+      setState(() {
+        novelsFeature = result;
+      });
+    }
   }
 
   void fetchNovelsPopular() async {
-    novelsPopular = await homeServices.getNovelsEmerging(
+    final List<Novel>? result = await homeServices.getNovelsEmerging(
       context: context, take: 9, skip: 0);
-    setState(() {});
+    if (mounted) {
+      setState(() {
+        novelsPopular = result;
+      });
+    }
   }
 
   void fetchNovelsLastest() async {
-    novelsLastest = await homeServices.getNovelsEmerging(
+    final List<Novel>? result = await homeServices.getNovelsEmerging(
       context: context, take: 10, skip: 0);
-    setState(() {});
+    if (mounted) {
+      setState(() {
+        novelsLastest = result;
+      });
+    }
   }
 
   void fetchNovelsCompleted() async {
-    novelsCompleted = await homeServices.getNovelsEmerging(
+    final List<Novel>? result = await homeServices.getNovelsEmerging(
       context: context, take: 9, skip: 0);
-    setState(() {});
+    if (mounted) {
+      setState(() {
+        novelsCompleted = result;
+      });
+    }
   }
 
   @override
   void initState() {
     super.initState();
+    novelsEmerging = [];
+    novelsFeature = [];
+    novelsPopular = [];
+    novelsLastest = [];
+    novelsCompleted = [];
     fetchNovelsEmerging();
     fetchNovelsFeature();
     fetchNovelsPopular();

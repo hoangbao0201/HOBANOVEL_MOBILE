@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:hobanovel/models/novel.dart';
 import 'package:http/http.dart' as http;
 
 class HomeServices {
@@ -16,7 +17,15 @@ class HomeServices {
         Uri.parse("https://hobanovel-server.adaptable.app/api/novels?take=$take&skip=$skip")
       );
 
-      return jsonDecode(novelsRes.body);
+      Map<String, dynamic> data = jsonDecode(novelsRes.body);
+
+      if (data['success'] == true) {
+        List<dynamic> novelsJson = data['novels'];
+        List<Novel> novels = novelsJson.map((novelJson) => Novel.fromJson(novelJson)).toList();
+        return novels;
+      } else {
+        throw Exception('API request failed: ${data['error']}');
+      }
     } catch(error) {
       throw Exception('Failed to fetch Novels Emerging: $error');
     }

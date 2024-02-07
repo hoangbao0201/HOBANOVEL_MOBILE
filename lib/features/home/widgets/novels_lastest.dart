@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hobanovel/constants/global_variables.dart';
 import 'package:hobanovel/features/novel_detail/screen/novel_detail_screen.dart';
+import 'package:hobanovel/models/novel.dart';
 
 class NovelsLastest extends StatefulWidget {
-  final dynamic novels;
+  final List<Novel>? novels;
   const NovelsLastest({Key? key, required this.novels}) : super(key: key);
 
   @override
@@ -16,7 +18,7 @@ class _NovelsLastestState extends State<NovelsLastest> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.novels == null
+    return widget.novels == null || widget.novels!.isEmpty
         ? Container(
             width: double.infinity,
             height: 250,
@@ -60,7 +62,8 @@ class _NovelsLastestState extends State<NovelsLastest> {
                       itemCount: 10,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) => GestureDetector(
-                            onTap: () => navigateToNovelDetailScreen(widget.novels["novels"][index]),
+                            onTap: () => navigateToNovelDetailScreen(
+                                widget.novels![index]),
                             child: Container(
                               width: 100,
                               margin: const EdgeInsets.only(right: 12.0),
@@ -70,8 +73,10 @@ class _NovelsLastestState extends State<NovelsLastest> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(5),
                                       child: Image.network(
-                                        widget.novels["novels"][index]
-                                                ["thumbnail"] ??
+                                        GlobalVariables.urlImage +
+                                                "c_limit,w_200/" +
+                                                widget
+                                                    .novels![index].thumbnail ??
                                             "",
                                         fit: BoxFit.cover,
                                         width: double.infinity,
@@ -80,8 +85,7 @@ class _NovelsLastestState extends State<NovelsLastest> {
                                   ),
                                   SizedBox(height: 5),
                                   Text(
-                                    widget.novels["novels"][index]["title"] ??
-                                        "",
+                                    widget.novels![index].title ?? "",
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(

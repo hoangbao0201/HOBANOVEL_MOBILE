@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hobanovel/constants/global_variables.dart';
 import 'package:hobanovel/features/novel_detail/screen/novel_detail_screen.dart';
+import 'package:hobanovel/models/novel.dart';
 
 class NovelsFeatured extends StatefulWidget {
-  final dynamic novels;
+  final List<Novel>? novels;
   const NovelsFeatured({Key? key, required this.novels}) : super(key: key);
 
   @override
@@ -17,7 +18,7 @@ class _NovelsFeaturedState extends State<NovelsFeatured> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.novels == null
+    return widget.novels == null || widget.novels!.isEmpty
         ? Container(
             width: double.infinity,
             height: 510,
@@ -63,7 +64,8 @@ class _NovelsFeaturedState extends State<NovelsFeatured> {
                       mainAxisExtent: 208),
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () => navigateToNovelDetailScreen(widget.novels["novels"][index]),
+                      onTap: () =>
+                          navigateToNovelDetailScreen(widget.novels![index]),
                       child: Container(
                         // color: Colors.red,
                         child: Column(
@@ -73,7 +75,10 @@ class _NovelsFeaturedState extends State<NovelsFeatured> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: Image.network(
-                                  widget.novels["novels"][index]["thumbnail"] ?? "",
+                                  GlobalVariables.urlImage +
+                                          "c_limit,w_200/" +
+                                          widget.novels![index].thumbnail ??
+                                      "",
                                   fit: BoxFit.cover,
                                   width: double.infinity,
                                 ),
@@ -81,7 +86,7 @@ class _NovelsFeaturedState extends State<NovelsFeatured> {
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              widget.novels["novels"][index]["title"] ?? "",
+                              widget.novels![index].title ?? "",
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -89,9 +94,8 @@ class _NovelsFeaturedState extends State<NovelsFeatured> {
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              GlobalVariables.dataGenres[widget.novels["novels"][index]
-                                          ["genre"]
-                                      .toString()] ??
+                              GlobalVariables.dataGenres[
+                                      widget.novels![index].genre.toString()] ??
                                   "",
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,

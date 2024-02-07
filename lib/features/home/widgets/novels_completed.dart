@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hobanovel/common/widgets/novel_evaluate.dart';
 import 'package:hobanovel/constants/global_variables.dart';
 import 'package:hobanovel/features/novel_detail/screen/novel_detail_screen.dart';
+import 'package:hobanovel/models/novel.dart';
 
 class NovelsCompleted extends StatefulWidget {
-  final dynamic novels;
+  final List<Novel>? novels;
   const NovelsCompleted({Key? key, required this.novels}) : super(key: key);
 
   @override
@@ -18,7 +19,7 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.novels == null
+    return widget.novels == null || widget.novels!.isEmpty
         ? Container(
             width: double.infinity,
             height: 400,
@@ -70,23 +71,20 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   NovelItem(
-                                      novelData: widget.novels["novels"]
-                                          [(index * 3 + 2) - 2],
+                                      novelData:
+                                          widget.novels![(index * 3 + 2) - 2],
                                       onTap: () => navigateToNovelDetailScreen(
-                                          widget.novels["novels"]
-                                              [(index * 3 + 2) - 2])),
+                                          widget.novels![(index * 3 + 2) - 2])),
                                   NovelItem(
-                                      novelData: widget.novels["novels"]
-                                          [(index * 3 + 2) - 1],
+                                      novelData:
+                                          widget.novels![(index * 3 + 2) - 1],
                                       onTap: () => navigateToNovelDetailScreen(
-                                          widget.novels["novels"]
-                                              [(index * 3 + 2) - 1])),
+                                          widget.novels![(index * 3 + 2) - 1])),
                                   NovelItem(
-                                      novelData: widget.novels["novels"]
-                                          [(index * 3 + 2) - 0],
+                                      novelData:
+                                          widget.novels![(index * 3 + 2) - 0],
                                       onTap: () => navigateToNovelDetailScreen(
-                                          widget.novels["novels"]
-                                              [(index * 3 + 2) - 0])),
+                                          widget.novels![(index * 3 + 2) - 0])),
                                 ],
                               ),
                             ),
@@ -99,7 +97,7 @@ class _NovelsCompletedState extends State<NovelsCompleted> {
 }
 
 class NovelItem extends StatelessWidget {
-  final Map<String, dynamic> novelData;
+  final Novel novelData;
   final VoidCallback onTap;
   NovelItem({required this.novelData, required this.onTap});
 
@@ -114,7 +112,10 @@ class NovelItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(6),
               child: SizedBox.fromSize(
                 child: Image.network(
-                  novelData["thumbnail"] ?? "",
+                  GlobalVariables.urlImage +
+                          "c_limit,w_200/" +
+                          novelData!.thumbnail ??
+                      "",
                   fit: BoxFit.cover,
                   width: 70,
                   height: 90,
@@ -130,7 +131,7 @@ class NovelItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      novelData["title"] ?? "",
+                      novelData!.title ?? "",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style:

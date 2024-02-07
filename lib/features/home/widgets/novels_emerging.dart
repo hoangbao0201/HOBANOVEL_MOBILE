@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hobanovel/common/widgets/novel_evaluate.dart';
+import 'package:hobanovel/constants/global_variables.dart';
 import 'package:hobanovel/features/novel_detail/screen/novel_detail_screen.dart';
+import 'package:hobanovel/models/novel.dart';
 
 class NovelsEmerging extends StatefulWidget {
-  final dynamic novels;
-  const NovelsEmerging({Key? key, required this.novels}): super(key: key);
+  final List<Novel>? novels;
+  const NovelsEmerging({Key? key, required this.novels}) : super(key: key);
 
   @override
   State<NovelsEmerging> createState() => _NovelsEmergingState();
@@ -12,9 +14,6 @@ class NovelsEmerging extends StatefulWidget {
 
 class _NovelsEmergingState extends State<NovelsEmerging> {
   int _activeIndex = 0;
-  // dynamic novels;
-  // final HomeServices homeServices = HomeServices();
-  // NovelItem({required this.novel, required this.onTap});
 
   void updateActiveIndex(int index) {
     setState(() {
@@ -28,7 +27,7 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.novels == null
+    return widget.novels == null || widget.novels!.isEmpty
         ? Container(
             width: double.infinity,
             height: 320,
@@ -71,7 +70,7 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
                         // color: Colors.yellow,
                         height: 65,
                         child: ListView.builder(
-                            itemCount: 10,
+                            itemCount: 9,
                             physics: const AlwaysScrollableScrollPhysics(),
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) => GestureDetector(
@@ -81,7 +80,8 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
                                   child: Container(
                                     height: 65,
                                     width: 50,
-                                    margin: EdgeInsets.symmetric(horizontal: 2.0),
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 2.0),
                                     decoration: BoxDecoration(
                                         border: Border.all(
                                             color: _activeIndex == index
@@ -93,7 +93,10 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
                                       borderRadius: BorderRadius.circular(5),
                                       child: SizedBox.fromSize(
                                         child: Image.network(
-                                          widget.novels["novels"][index]["thumbnail"] ??
+                                          GlobalVariables.urlImage +
+                                                  "c_limit,w_200/" +
+                                                  widget.novels![index]
+                                                      .thumbnail ??
                                               "",
                                           fit: BoxFit.cover,
                                           height: 200,
@@ -116,8 +119,7 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    widget.novels["novels"][_activeIndex]["title"] ??
-                                        "",
+                                    widget.novels![_activeIndex].title ?? "",
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(
@@ -125,8 +127,7 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
                                         fontWeight: FontWeight.w400),
                                   ),
                                   Text(
-                                    widget.novels["novels"][_activeIndex]
-                                            ["description"] ??
+                                    widget.novels![_activeIndex].description ??
                                         "",
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
@@ -137,7 +138,9 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
                                   Row(
                                     children: [
                                       ElevatedButton(
-                                        onPressed: () => navigateToNovelDetailScreen(widget.novels["novels"][_activeIndex]),
+                                        onPressed: () =>
+                                            navigateToNovelDetailScreen(
+                                                widget.novels![_activeIndex]),
                                         child: Text(
                                           "Đọc ngay",
                                           style: TextStyle(color: Colors.white),
@@ -162,12 +165,16 @@ class _NovelsEmergingState extends State<NovelsEmerging> {
                             ),
                             const SizedBox(width: 8),
                             InkWell(
-                              onTap: () => navigateToNovelDetailScreen(widget.novels["novels"][_activeIndex]),
+                              onTap: () => navigateToNovelDetailScreen(
+                                  widget.novels![_activeIndex]),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(6),
                                 child: SizedBox.fromSize(
                                   child: Image.network(
-                                    widget.novels["novels"][_activeIndex]["thumbnail"] ??
+                                    GlobalVariables.urlImage +
+                                            "c_limit,w_200/" +
+                                            widget.novels![_activeIndex]
+                                                .thumbnail ??
                                         "",
                                     fit: BoxFit.cover,
                                     width: 140,

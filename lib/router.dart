@@ -12,39 +12,39 @@ import 'package:hobanovel/features/novel_detail/screen/novel_detail_screen.dart'
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch(routeSettings.name) {
     case BookshelfScreen.routeName:
-      return CupertinoPageRoute(
+      return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const BookshelfScreen(),
       );
     case HomeScreen.routeName:
-      return CupertinoPageRoute(
+      return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const HomeScreen(),
       );
     case NotificationScreen.routeName:
-      return CupertinoPageRoute(
+      return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const NotificationScreen(),
       );
     case ProfileScreen.routeName:
-      return CupertinoPageRoute(
+      return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const ProfileScreen(),
       );
     case NovelDetailScreen.routeName:
       var novel = routeSettings.arguments as dynamic;
-      return CupertinoPageRoute(
+      return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => NovelDetailScreen(novel: novel),
       );
     case ChapterDetailScreen.routeName:
-      return CupertinoPageRoute(
+      return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const ChapterDetailScreen(),
       );
     
     default:
-      return CupertinoPageRoute(
+      return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const Scaffold(
           body: Center(

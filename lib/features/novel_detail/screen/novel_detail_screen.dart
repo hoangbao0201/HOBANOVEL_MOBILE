@@ -2,18 +2,21 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:hobanovel/common/widgets/novel_evaluate.dart';
+import 'package:hobanovel/constants/global_variables.dart';
 import 'package:hobanovel/features/chapter_detail/screen/chapter_detail_screen.dart';
+import 'package:hobanovel/features/novel_detail/widgets/TabListChapter.dart';
+import 'package:hobanovel/models/novel.dart';
 
 class NovelDetailScreen extends StatefulWidget {
   static const String routeName = '/novel-details';
-  final dynamic novel;
+  final Novel novel;
   const NovelDetailScreen({Key? key, required this.novel}): super(key: key);
 
   @override
   State<NovelDetailScreen> createState() => _NovelDetailScreenState();
 }
 
-class _NovelDetailScreenState extends State<NovelDetailScreen> {
+class _NovelDetailScreenState extends State<NovelDetailScreen> with SingleTickerProviderStateMixin {
 
   void navigateToChapterDetailScreen() {
     Navigator.pushNamed(context, ChapterDetailScreen.routeName);
@@ -46,7 +49,7 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(5),
                                   child: Image.network(
-                                    widget.novel["thumbnail"] ?? "",
+                                    GlobalVariables.urlImage + "c_limit,w_200/" + widget.novel!.thumbnail ?? "",
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -60,7 +63,7 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        widget.novel["title"] ?? "",
+                                        widget.novel!.title ?? "",
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
@@ -81,7 +84,7 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
                                                 fontWeight: FontWeight.w400),
                                           ),
                                           Text(
-                                            widget.novel["author"]["name"] ?? "",
+                                            widget.novel!.author.name ?? "",
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
@@ -179,7 +182,7 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
                       child: ImageFiltered(
                         imageFilter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
                         child: Image.network(
-                            widget.novel["thumbnail"] ??
+                            GlobalVariables.urlImage + "c_limit,w_200/" + widget.novel!.thumbnail ??
                                 "",
                             fit: BoxFit.cover),
                       ),
@@ -190,13 +193,20 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
               ),
               SliverPersistentHeader(
                 delegate: _SliverAppBarDelegate(
-                  TabBar(
+                  const TabBar(
                     labelColor: Colors.black87,
                     unselectedLabelColor: Colors.grey,
                     labelStyle: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600
                     ),
+                    indicatorColor: Colors.black,
+                    indicatorWeight: 3,
+                    indicator: BoxDecoration(
+                      // borderRadius: BorderRadius.circular(50), // Creates border
+                      // color: Colors.greenAccent
+                    ),
+                    indicatorSize: TabBarIndicatorSize.tab,
                     tabs: [
                       Tab(text: 'Giới thiệu'),
                       Tab(text: 'Đánh giá'),
@@ -219,7 +229,7 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                         child: Text(
-                          widget.novel["description"].replaceFirst("\t", "\n\n\t") ?? "",
+                          widget.novel!.description.replaceFirst("\t", "\n\n\t") ?? "",
                           style: TextStyle(
                             fontSize: 17,
                             color: Colors.black87
@@ -238,14 +248,7 @@ class _NovelDetailScreenState extends State<NovelDetailScreen> {
                   ]
                 ),
               ),
-              Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Content for Tab 3'),
-                  ]
-                ),
-              ),
+              TabListChapter(novelId: widget.novel!.novelId),
               Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
